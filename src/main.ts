@@ -28,7 +28,7 @@ async function main() {
 
     const { preDistance, postDistance } = await solver.computeDistance({ x: startX, y: startY }, { x: endX, y: endY });
 
-    resultDisplay.textContent = `Pre-eruption distance: ${preDistance}, Post-eruption distance: ${postDistance}`;
+    resultDisplay.textContent = `Difference between pre-eruption and post-eruption distances: ${(Math.abs(preDistance - postDistance)).toFixed(2)} meters`;
   });
 }
 

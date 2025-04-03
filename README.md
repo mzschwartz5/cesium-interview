@@ -1,4 +1,6 @@
-Running locally:
+View at https://mzschwartz5.github.io/cesium-interview/ (**on Chrome or browser supporting WebGPU**)
+
+Or run locally:
 - Clone repository
 - Run `npm install`
 - Run `npm run dev`
@@ -27,3 +29,5 @@ Resources used:
 - UPenn GPU CIS 5650 slides on parallel reduction: https://docs.google.com/presentation/d/1OHkJLJXptnVFfFG-kTuQsmdQYQjFBRUj/edit#slide=id.p27
 - Inigo Quilez for formulation of cubic interpolation: https://youtu.be/BFld4EBO2RE?si=M4FFYC9lvgf1BtVs&t=131
 - A little copilot - mostly for speeding up the pipeline set up and some basic HTML. It's usefulness for the kernel code is very limited, often counterproductive.
+
+Time spent: probably a good 6 hours or so... a full evening. I know the prompt called for 2-3 hours - hopefully it's clear that the extra time I needed wasn't due to a lack of ability to solve the problem, but because I chose to write the solution for the GPU.

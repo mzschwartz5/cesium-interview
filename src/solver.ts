@@ -103,8 +103,8 @@ export class Solver {
 
     async createBuffers() {
         // Load in height maps and copy to GPU buffers
-        const preHeightMapPromise = this.loadHeightMap('/pre.data');
-        const postHeightMapPromise = this.loadHeightMap('/post.data');
+        const preHeightMapPromise = this.loadHeightMap('./pre.data');
+        const postHeightMapPromise = this.loadHeightMap('./post.data');
         [this.preHeightMap, this.postHeightMap] = await Promise.all([preHeightMapPromise, postHeightMapPromise]);
 
         console.log("Height maps loaded");
@@ -115,7 +115,7 @@ export class Solver {
             size: this.uniforms.buffer.byteLength,
             usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST,
         });
-        this.uniforms.numSamples = 1024; // use this to control the integration resolution
+        this.uniforms.numSamples = 1024 * 8; // use this to control the integration resolution
 
         // Create distance results buffer
         this.distanceResultsBuffer = this.device.createBuffer({
