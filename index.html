@@ -2,11 +2,52 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title>3D Software Developer Project</title>
   </head>
   <body>
     <script type="module" src="/src/main.ts"></script>
+    <h2>Input start and end point for surface distance computation:</h2>
+    <div>
+      <label for="startX">Start X:</label>
+      <input type="number" id="startX" min="0" max="511"/>
+      <label for="startY">Start Y:</label>
+      <input type="number" id="startY" min="0" max="511"/>
+    </div>
+    <div>
+      <label for="endX">End X:</label>
+      <input type="number" id="endX" min="0" max="511"/>
+      <label for="endY">End Y:</label>
+      <input type="number" id="endY" min="0" max="511"/>
+    </div>
+    <button id="computeButton">Compute Distance</button>
+    <div id="result">.....</div>
+    <div id="images">
+      <img id="preeruption" src="/pre.png" width="512" height="512"/>
+      <img id="posteruption" src="/post.png" width="512" height="512"/>
+    </div>
+
+    <div id="coordinates">Coordintes (hover over image): </div>
+
+    <script>
+      const images = document.querySelectorAll('#images img');
+      const coordinates = document.getElementById('coordinates');
+
+      images.forEach((img) => {
+        img.addEventListener('mousemove', (event) => {
+          const rect = img.getBoundingClientRect();
+          const x = Math.floor((event.clientX - rect.left) / (rect.width / 512));
+          const y = Math.floor((event.clientY - rect.top) / (rect.height / 512));
+          coordinates.textContent = `Coordinates: (${x}, ${y})`;
+          coordinates.style.left = `${event.pageX + 10}px`;
+          coordinates.style.top = `${event.pageY + 10}px`;
+          coordinates.style.display = 'block';
+        });
+
+        img.addEventListener('mouseleave', () => {
+          coordinates.style.display = 'none';
+        });
+      });
+    </script>
   </body>
 </html>
